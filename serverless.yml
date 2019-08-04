@@ -1,0 +1,16 @@
+service: scrapeit-serverless
+
+provider:
+  stage: prod
+  name: aws
+  runtime: nodejs8.10
+  timeout: 480
+  region: us-east-1
+
+functions:
+  scrapeit:
+    handler: handler.scrapeit
+    events:
+      - http:
+          path: scraper/scrapeit
+          method: post
